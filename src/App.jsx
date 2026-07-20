@@ -141,7 +141,7 @@ ${zeroProof ? "- Absolutely no alcohol in any ingredient." : ""}`;
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
-        max_tokens: 1000,
+        max_tokens: 1800,
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -175,7 +175,7 @@ ${JSON_SHAPE(season, technique, color)}`;
       const parsed = await callBartender(prompt);
       setDrink(parsed);
     } catch (err) {
-      setError("The bartender dropped the shaker. Try generating again.");
+      setError(`The bartender dropped the shaker: ${err.message || "try generating again."}`);
     } finally {
       setLoading(false);
     }
