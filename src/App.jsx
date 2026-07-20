@@ -50,6 +50,17 @@ const SERVES = [
   { value: 50, label: "Event / Bulk", desc: "50 — large format" },
 ];
 
+const OCCASIONS = [
+  { value: "", label: "Any / no specific context" },
+  { value: "happy hour — value-driven, fast to pour, crowd-pleasing", label: "Happy Hour" },
+  { value: "special event — elevated, memorable, presentation-forward", label: "Special Event" },
+  { value: "holiday menu — festive, seasonal, gift-worthy", label: "Holiday Menu" },
+  { value: "weekend brunch — bright, lower-ABV friendly, food-forward", label: "Weekend Brunch" },
+  { value: "tasting menu pairing — refined, course-matched, smaller pour", label: "Tasting Menu Pairing" },
+  { value: "late night service — bold, high-strength, quick to make under pressure", label: "Late Night" },
+  { value: "private / corporate event — polished, batchable, broad appeal", label: "Private / Corporate Event" },
+];
+
 const REMIXES = ["Smokier", "Sweeter", "Stronger", "Lighter", "More bitter", "More herbal"];
 
 const SUGGESTIONS = [
@@ -299,7 +310,7 @@ List your inventory. Get a spec sheet no one else is pouring.
             id="occasion-input"
             value={occasion}
             onChange={(e) => setOccasion(e.target.value)}
-            placeholder="Anniversary on the porch, first snow, closing a big deal…"
+            placeholder="Happy hour special, holiday menu, tasting pairing, private event…"
             style={{ width: "100%", boxSizing: "border-box", background: "rgba(245,238,221,0.06)", border: `1px solid ${T.line}`, borderRadius: 6, color: T.cream, fontFamily: bodyFont, fontSize: 15, padding: "10px 12px", outline: "none" }}
           />
         </div>
