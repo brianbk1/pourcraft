@@ -45,9 +45,9 @@ const COLORS = [
 ];
 
 const SERVES = [
-  { value: 1, label: "Solo", desc: "1 drink" },
-  { value: 2, label: "Date night", desc: "2 drinks" },
-  { value: 8, label: "Pitcher", desc: "batch of 8" },
+  { value: 1, label: "R&D Sample", desc: "1 pour, dial in the recipe" },
+  { value: 12, label: "Service Batch", desc: "12 — pre-batch for a shift" },
+  { value: 50, label: "Event / Bulk", desc: "50 — large format" },
 ];
 
 const REMIXES = ["Smokier", "Sweeter", "Stronger", "Lighter", "More bitter", "More herbal"];
@@ -81,6 +81,7 @@ export default function PourCraft() {
   const [color, setColor] = useState("");
   const [serves, setServes] = useState(1);
   const [occasion, setOccasion] = useState("");
+  const [kitchenContext, setKitchenContext] = useState("");
   const [loading, setLoading] = useState(false);
   const [remixing, setRemixing] = useState("");
   const [error, setError] = useState("");
@@ -111,7 +112,9 @@ export default function PourCraft() {
   const buildRules = () => `Rules:
 - The drink must feel unmistakably seasonal for ${season} (technique, garnish, and flavor should evoke the season).
 - Use the given ingredients as the backbone; you may add a small number of complementary ingredients a good home bar could source.
-- Scale ALL ingredient amounts for exactly ${serves} serving${serves > 1 ? "s" : ""}.${serves === 8 ? " This is a batch/pitcher build: include pre-dilution water in the ingredient list and write the method as a batch prep (no per-glass shaking)." : ""}
+- Scale ALL ingredient amounts for exactly ${serves} serving${serves > 1 ? "s" : ""}.${serves >= 12 ? " This is a service batch build: include pre-dilution water in the ingredient list, write the method as a batch prep (no per-glass shaking), and note shelf life / how long the batch holds quality once made." : ""}
+- Write this for a professional bartender or bar manager, not a home mixologist. Use correct bar terminology (e.g. "express the oils," "dry shake," "single strain vs. double strain") and assume familiarity with standard technique — don't over-explain basics, but do give exact specs a bar could put on a POS or spec sheet.
+${kitchenContext ? `- The venue's kitchen is currently serving: "${kitchenContext}". Tailor the food pairings specifically to this menu context rather than generic dish suggestions — reference dishes or flavor directions that would realistically appear on a menu like this.` : ""}
 - Invent an evocative original name — never the name of an existing cocktail.
 - Be genuinely creative: unexpected technique, infusion, or flavor pairing.
 - For each ingredient, set "needToBuy": false if it matches or is derived from the user's listed ingredients (${ingredients.join(", ")}), true if it is an addition they likely need to source.
@@ -211,13 +214,13 @@ ${JSON_SHAPE(season, technique, color)}`;
       {/* ---------- Header ---------- */}
       <header style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", padding: "48px 0 8px" }}>
         <div style={{ fontFamily: utilFont, fontSize: 11, letterSpacing: "0.35em", color: T.brass, textTransform: "uppercase" }}>
-          Est. tonight · House originals only
+R&D Tool · Original Recipe Development
         </div>
         <h1 style={{ fontFamily: displayFont, fontSize: "clamp(40px, 8vw, 64px)", fontWeight: 400, margin: "10px 0 6px", letterSpacing: "0.02em", color: T.brassSoft }}>
           PourCraft
         </h1>
         <p style={{ fontStyle: "italic", color: "rgba(245,238,221,0.75)", fontSize: 16, margin: 0 }}>
-          Tell the bar what you have. Leave with a drink no one has ever poured.
+List your inventory. Get a spec sheet no one else is pouring.
         </p>
         <div style={{ height: 1, background: T.line, margin: "28px auto 0", maxWidth: 420 }} />
       </header>
@@ -301,6 +304,21 @@ ${JSON_SHAPE(season, technique, color)}`;
           />
         </div>
 
+        {/* Kitchen / menu context */}
+        <div style={{ marginTop: 24 }}>
+          <label htmlFor="kitchen-input" style={labelStyle}>
+            What the kitchen is serving <span style={{ opacity: 0.6, textTransform: "none", letterSpacing: "normal" }}>(optional)</span>
+          </label>
+          <textarea
+            id="kitchen-input"
+            value={kitchenContext}
+            onChange={(e) => setKitchenContext(e.target.value)}
+            placeholder="Menu style, cuisine, or current specials — e.g. 'Neapolitan wood-fired pizza, seasonal antipasti' or 'this week's special is a smoked duck breast'"
+            rows={2}
+            style={{ width: "100%", boxSizing: "border-box", resize: "vertical", background: "rgba(245,238,221,0.06)", border: `1px solid ${T.line}`, borderRadius: 6, color: T.cream, fontFamily: bodyFont, fontSize: 15, padding: "10px 12px", outline: "none" }}
+          />
+        </div>
+
         {/* Season + zero proof */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", justifyContent: "space-between", marginTop: 24 }}>
           <div>
@@ -332,7 +350,7 @@ ${JSON_SHAPE(season, technique, color)}`;
 
         {/* Serves */}
         <div style={{ marginTop: 24 }}>
-          <div style={labelStyle}>Pouring for</div>
+          <div style={labelStyle}>Build for</div>
           <div style={{ display: "flex", gap: 0, border: `1px solid ${T.line}`, borderRadius: 6, overflow: "hidden" }}>
             {SERVES.map((s, idx) => (
               <button
@@ -476,7 +494,7 @@ ${JSON_SHAPE(season, technique, color)}`;
 
           {/* Build */}
           <div style={{ padding: "20px 0 14px", borderBottom: `1px solid rgba(34,32,27,0.2)` }}>
-            <h3 style={cardHeading}>Build{serves === 8 ? " — batch" : ""}</h3>
+            <h3 style={cardHeading}>Build{serves >= 12 ? " — service batch" : ""}</h3>
             {drink.ingredients?.map((ing, idx) => (
               <div key={idx} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, padding: "5px 0", fontSize: 15, borderBottom: idx < drink.ingredients.length - 1 ? "1px dotted rgba(34,32,27,0.25)" : "none" }}>
                 <span>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#122420"/>
+  <!-- coupe glass -->
+  <path d="M16 14 H48 C48 26 40 34 33 35.5 V50 H41 V56 H23 V50 H31 V35.5 C24 34 16 26 16 14 Z"
+        fill="none" stroke="#C9973F" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- liquid -->
+  <path d="M19.5 17.5 H44.5 C43.8 25 38 31 32 32.3 C26 31 20.2 25 19.5 17.5 Z" fill="#C9973F" opacity="0.85"/>
+  <!-- garnish -->
+  <circle cx="38" cy="12" r="3.2" fill="#7A2E2E" stroke="#E3C27E" stroke-width="1"/>
+</svg>
