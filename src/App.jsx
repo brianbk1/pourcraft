@@ -624,6 +624,17 @@ List your inventory. Get a spec sheet no one else is pouring.
           Your spec card will appear here.
         </p>
       )}
+
+      <footer style={{ textAlign: "center", padding: "40px 16px 24px", borderTop: `1px solid ${T.line}`, marginTop: 40 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 16px", marginBottom: 10 }}>
+          {[["/technique-guide.html", "Technique Guide"], ["/about.html", "About"], ["/contact.html", "Contact"], ["/privacy.html", "Privacy"], ["/terms.html", "Terms"]].map(([href, label]) => (
+            <a key={href} href={href} style={{ color: T.brassSoft, textDecoration: "none", fontSize: 12.5, fontFamily: bodyFont }}>{label}</a>
+          ))}
+        </div>
+        <p style={{ fontSize: 11.5, color: "rgba(245,238,221,0.4)", margin: 0, fontFamily: bodyFont }}>
+          Every recipe is AI-generated — taste and adjust before it goes on a menu.
+        </p>
+      </footer>
     </div>
   );
 }

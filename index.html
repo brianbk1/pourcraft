@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-adsense-account" content="ca-pub-5006125305468777" />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5006125305468777" crossorigin="anonymous"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLH1KPZ652"></script>
     <script>
@@ -12,11 +17,97 @@
       gtag('js', new Date());
       gtag('config', 'G-CLH1KPZ652');
     </script>
-    <title>PourCraft — Seasonal Cocktails from Your Bar</title>
-    <meta name="description" content="Tell PourCraft what's behind your bar and it invents a completely original, seasonal cocktail — with craft technique, a color outcome, and food pairings." />
+
+    <title>PourCraft — AI Cocktail Generator for Bar Professionals</title>
+    <meta name="description" content="Tell PourCraft what's behind your bar and it invents a completely original, seasonal cocktail — with craft technique, a color outcome, batching for service, and food pairings." />
+
+    <style>
+      #pc-static {
+        font-family: Georgia, 'Iowan Old Style', serif;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 40px 24px 60px;
+        color: #22201B;
+        background: #F5EEDD;
+      }
+      #pc-static h1 { font-size: 2rem; color: #122420; margin: 0 0 10px; line-height: 1.2; }
+      #pc-static .tagline { font-size: 1.05rem; color: #6E6455; margin: 0 0 32px; line-height: 1.6; }
+      #pc-static h2 { font-size: 1.25rem; color: #122420; margin: 32px 0 10px; border-bottom: 2px solid #C9973F; padding-bottom: 6px; }
+      #pc-static p { font-size: 0.95rem; line-height: 1.75; color: #3a362c; margin: 0 0 14px; }
+      #pc-static ul { margin: 0 0 16px 20px; padding: 0; }
+      #pc-static li { font-size: 0.95rem; line-height: 1.7; color: #3a362c; margin-bottom: 6px; }
+      #pc-static .cta-btn {
+        display: inline-block; background: #7A2E2E; color: #F5EEDD; font-size: 1rem; font-weight: 700;
+        padding: 12px 28px; border-radius: 4px; text-decoration: none; margin-top: 6px; cursor: pointer; border: none;
+        font-family: system-ui, sans-serif;
+      }
+      #pc-static footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid #C9973F55; font-family: system-ui, sans-serif; font-size: 0.8rem; color: #6E6455; text-align: center; }
+      #pc-static footer a { color: #7A2E2E; text-decoration: none; margin: 0 8px; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Static content: visible to Google's crawler and to any visitor before React loads -->
+    <div id="pc-static">
+      <h1>🥃 PourCraft</h1>
+      <p class="tagline">Tell PourCraft what's behind the bar and it invents a completely original cocktail — real craft technique, a target color, batched for service, paired to your kitchen's menu. Free to use.</p>
+
+      <button class="cta-btn" onclick="document.getElementById('pc-static').style.display='none'">Start Building a Drink →</button>
+
+      <h2>What Is PourCraft?</h2>
+      <p>PourCraft is a free AI-powered cocktail generator built for working bartenders and bar managers, not home hobbyists. List what's behind the bar, and it invents a genuinely original recipe — never a variation on an existing drink — written the way a bar actually specs a menu item: exact amounts, correct terminology, and real technique instructions.</p>
+
+      <h2>How It Works</h2>
+      <ul>
+        <li><strong>List your ingredients</strong> — up to eight, used as the backbone of the recipe.</li>
+        <li><strong>Set the season</strong> — spring, summer, autumn, or winter shapes technique, garnish, and flavor direction.</li>
+        <li><strong>Pick a craft technique (optional)</strong> — fat washing, milk washing, oleo saccharum, smoking, rapid infusion, acid adjusting, force carbonation, or saline enhancement.</li>
+        <li><strong>Choose a target color (optional)</strong> — the finished drink is built to present that color using real ingredients, never food dye.</li>
+        <li><strong>Set serving size</strong> — a single R&D sample, a 12-serving batch for a shift, or a 50-serving event build, with batching math and shelf-life notes included.</li>
+        <li><strong>Add occasion and kitchen context (optional)</strong> — tailor the drink to happy hour, a tasting menu, a holiday list, or your current food menu.</li>
+      </ul>
+
+      <h2>Who It's For</h2>
+      <p>Bartenders developing a seasonal menu, bar managers building a batched program for volume service, and consultants pitching a cocktail list to a new venue. Output assumes real bar knowledge — it won't explain what a jigger is, but it will give you a spec you can put straight on a POS.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Is PourCraft free?</strong><br/>Yes, completely free, no account required.</p>
+      <p><strong>Are the recipes actually original?</strong><br/>Each generation invents a new drink rather than pulling from a fixed list — the same ingredients and settings won't produce the same recipe twice.</p>
+      <p><strong>Can I remix a drink I already generated?</strong><br/>Yes — push any result smokier, sweeter, stronger, lighter, more bitter, or more herbal while keeping its identity intact.</p>
+      <p><strong>Does it support zero-proof drinks?</strong><br/>Yes, a toggle removes alcohol from every ingredient in the build.</p>
+      <p><strong>Should I serve a generated recipe without tasting it first?</strong><br/>No — treat every output as a strong starting point that a human still tastes and adjusts before it goes on a menu.</p>
+
+      <h2>Start Building</h2>
+      <p>Ready to see what PourCraft invents from your bar? Click below to launch the generator.</p>
+      <button class="cta-btn" onclick="document.getElementById('pc-static').style.display='none'">Build a Cocktail →</button>
+
+      <footer>
+        <a href="/technique-guide.html">Technique Guide</a> ·
+        <a href="/about.html">About</a> ·
+        <a href="/contact.html">Contact</a> ·
+        <a href="/privacy.html">Privacy</a> ·
+        <a href="/terms.html">Terms</a>
+      </footer>
+    </div>
+    <!-- End static content -->
+
+    <script>
+      // Hide the static content once the React app has actually mounted —
+      // crawlers without JS execution still see the full text above.
+      document.addEventListener('DOMContentLoaded', function () {
+        var observer = new MutationObserver(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            var s = document.getElementById('pc-static');
+            if (s) s.style.display = 'none';
+            observer.disconnect();
+          }
+        });
+        observer.observe(document.getElementById('root'), { childList: true, subtree: false });
+      });
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
